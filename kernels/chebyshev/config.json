@@ -1,0 +1,235 @@
+{
+    "kernel_name": "chebyshev",
+    "c_template": "chebyshev.cu",
+    "h_template": "chebyshev.h",
+    "python_template": "chebyshev.py",
+    "rules": [
+        "SIZES is None"
+    ],
+    "naive": {
+        "function": "chebyshev_naive",
+        "arguments": [
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "zeros",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": [3],
+                    "type": "bElem"
+                }
+            }
+        ]
+    },
+    "naive-bricks": {
+        "function": "chebyshev_naive_bricks",
+        "arguments": [
+            {
+                "type": "brick-grid",
+                "array": {
+                    "dimensions": ["NAIVE_BSTRIDE2", "NAIVE_BSTRIDE1", "NAIVE_BSTRIDE0"],
+                    "type": "unsigned"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "generator": "random",
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "generator": "zeros",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": [3],
+                    "type": "bElem"
+                }
+            }
+        ]
+    },
+    "codegen": {
+        "function": "chebyshev_codegen",
+        "arguments": [
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "zeros",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": [3],
+                    "type": "bElem"
+                }
+            }
+        ]
+    },
+    "codegen-bricks": {
+        "function": "chebyshev_codegen_bricks",
+        "arguments": [
+            {
+                "type": "brick-grid",
+                "array": {
+                    "dimensions": ["NAIVE_BSTRIDE2", "NAIVE_BSTRIDE1", "NAIVE_BSTRIDE0"],
+                    "type": "unsigned"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "generator": "random",
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "generator": "random",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "brick-pointer",
+                "array": {
+                    "generator": "zeros",
+                    "dimensions": ["STRIDE0", "STRIDE1", "STRIDE2"],
+                    "type": "bElem"
+                }
+            },
+            {
+                "type": "array",
+                "array": {
+                    "generator": "random",
+                    "dimensions": [3],
+                    "type": "bElem"
+                }
+            }
+        ]
+    }
+}

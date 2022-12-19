@@ -4,7 +4,8 @@ module load cuda/11.0.3 python/3.8.10 cmake/3.21.3 gcc/9.3.0
 bsub -Is -W 02:00 -nnodes 1 -P CSC383 $SHELL
 python python/main.py --backend cuda --config config.json
 jsrun --nrs 1 --cpu_per_rs 7 --gpu_per_rs 1 --rs_per_host 1  --bind rs ./main
-jsrun --nrs 1 --cpu_per_rs 7 --gpu_per_rs 1 --rs_per_host 1  --bind rs nvprof --metrics flop_count_dp,dram_read_throughput,dram_write_throughput,achieved_occupancy,sm_efficiency,gld_throughput,gst_throughput ./main![image](https://user-images.githubusercontent.com/77988165/208345982-1c05f50e-7fbe-4ccb-a554-5e99fbaddd40.png)
+jsrun --nrs 1 --cpu_per_rs 7 --gpu_per_rs 1 --rs_per_host 1  --bind rs nvprof --metrics
+flop_count_dp,dram_read_throughput,dram_write_throughput,achieved_occupancy,sm_efficiency,gld_throughput,gst_throughput ./main
 
 **Below commands can be used to run the framework on AMD crusher:**
 

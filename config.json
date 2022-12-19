@@ -1,0 +1,30 @@
+{
+    "bricklib-path": "/ccs/home/priyagoyal/bricklib",
+    "dimensions": [384, 384, 384],
+    "brick-dimensions": [8, 8, 32],
+    "brick-padding": [32, 32, 32],
+    "output": "main",
+    "hip": {
+        "vecsize": 64,
+        "brick-dimensions": [8, 8, 8],
+        "fold": "8,8",
+        "compiler": "hipcc",
+        "compiler-flags": ["-O2", "-fopenmp", "-I.", "-D__HIP_PLATFORM_AMD__"],
+        "codegen-flags": ["-c", "cpp", "--", "-DBACKEND=1", "-fopenmp", "-O2", "-I/opt/rocm-4.5.0/include", "-D__HIP_PLATFORM_AMD__"]
+    },
+    "cuda": {
+        "vecsize": 32,
+	"brick-dimensions": [8,8,8],
+        "fold": "4,8",
+        "codegen-flags": ["-c", "cpp", "--", "-I/uufs/chpc.utah.edu/sys/installdir/cuda/11.3.0/include"],
+        "compiler" : "nvcc",
+        "compiler-flags": ["-O2", "--compiler-options=-O2 -fopenmp", "-I."]
+    },
+    "kernel-directory": "kernels",
+    "kernels": {
+        "f3d": {
+            "sizes": [1,2],
+            "versions": ["naive", "naive-bricks", "codegen", "codegen-bricks"]
+        }
+    }
+}

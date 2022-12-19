@@ -1,0 +1,5 @@
+pmc: TCC_EA_RDREQ_32B_sum TCC_EA_RDREQ_sum TCC_EA_WRREQ_sum TCC_EA_WRREQ_64B_sum
+pmc: TCC_HIT_sum TCC_MISS_sum
+pmc: SQ_INSTS_VALU_ADD_F64 SQ_INSTS_VALU_MUL_F64 SQ_INSTS_VALU_TRANS_F64 SQ_INSTS_VALU_FMA_F64
+
+kernel: f3d_codegen_bricks2 f3d_codegen_bricks1 f3d_naive_bricks2 f3d_naive_bricks1 f3d_naive2 f3d_naive1 f3d_codegen2 f3d_codegen1
